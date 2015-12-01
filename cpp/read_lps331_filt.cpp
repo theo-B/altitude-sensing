@@ -5,7 +5,7 @@
 
 using namespace std;
 
-#define SAMPLES_TO_AVG 180
+#define SAMPLES_TO_AVG 200 //THIS HAS BEEN CHANGED FROM 180, CHECK IT WORKS
 #define SAMPLE_RATE_US 70000
 
 #define REF_P_XL       0x08
