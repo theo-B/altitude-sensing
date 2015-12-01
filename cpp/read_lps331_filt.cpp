@@ -5,7 +5,8 @@
 
 using namespace std;
 
-#define SAMPLES_TO_AVG 100
+#define SAMPLES_TO_AVG 180
+#define SAMPLE_RATE_US 70000
 
 #define REF_P_XL       0x08
 #define REF_P_L        0x09
@@ -70,7 +71,7 @@ int main()
       altitude[i] = 44308.7 * (1 - pow(pressure/1013.25, 0.190284));
    }
 
-   cout << "Beginning smoothing" << endl;
+   //cout << "Beginning smoothing" << endl;
    usleep(500000);
 
    while(1)
@@ -98,7 +99,7 @@ int main()
          altitude_smooth[i] = altitude_sum / SAMPLES_TO_AVG;
          cout << altitude_smooth[i] << endl;
          altitude_sum = 0;
-         usleep(100000);
+         usleep(SAMPLE_RATE_US);
       }
    }
 
